@@ -11,5 +11,9 @@ registry:
   server: dev.registry.tanzu.vmware.com
   username: ${DOCKER_USER}
   password: ${DOCKER_PASSWORD}
+git:
+  user: "${GITHUB_USER}"
+  password: "${GITHUB_PASSWORD}"
 EOF
-ytt --ignore-unknown-comments -f /tmp/values.yaml -f yamls | kapp deploy --yes -a example -f-
+ytt --ignore-unknown-comments -f /tmp/values.yaml -f yamls > /tmp/example-setup.yml 
+kapp deploy --yes -a example -f /tmp/example-setup.yml

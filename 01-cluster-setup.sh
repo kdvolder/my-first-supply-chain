@@ -16,7 +16,7 @@ kubectl create namespace cartographer-system || echo namespace cartographer-syst
 kapp deploy -y -a cartographer -n default -f https://github.com/vmware-tanzu/cartographer/releases/download/v0.1.0/cartographer.yaml
 
 # kpack install (used by the example supply chain)
-KPACK_VERSION=0.4.3
+KPACK_VERSION=0.5.0
 kapp deploy --yes -n default -a kpack \
 	-f https://github.com/pivotal/kpack/releases/download/v$KPACK_VERSION/release-$KPACK_VERSION.yaml
 

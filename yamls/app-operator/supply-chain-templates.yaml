@@ -39,6 +39,8 @@ spec:
       interval: 1m0s
       url: $(workload.spec.source.git.url)$
       ref: $(workload.spec.source.git.ref)$
+      secretRef:
+        name: git-creds
       gitImplementation: libgit2
       ignore: ""
 
@@ -71,7 +73,7 @@ spec:
       serviceAccountName: service-account
       builder:
         kind: ClusterBuilder
-        name: go-builder
+        name: java-builder
       source:
         blob:
           url: $(sources.source.url)$

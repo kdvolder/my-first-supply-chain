@@ -24,10 +24,14 @@ spec:
   serviceAccountName: #@ data.values.service_account_name
   source:
     git:
-      url: https://github.com/kontinue/hello-world
+      url: https://github.com/spring-projects-experimental/spring-boot-observer.git
       ref:
         branch: main
   build:
     env:
-      - name: CGO_ENABLED
-        value: "0"
+    - name: BP_MAVEN_BUILD_ARGUMENTS
+      value: "-DskipTests=true -Dmaven.test.skip=true -Pall package"
+    - name: BP_MAVEN_BUILT_MODULE
+      value: application-live-view-server
+      # - name: CGO_ENABLED
+      #   value: "0"
