@@ -34,13 +34,13 @@ spec:
         kind: ClusterSourceTemplate
         name: source
 
-    - name: source-tester
-      templateRef:
-        kind: ClusterSourceTemplate
-        name: test
-      sources:
-        - resource: source-provider
-          name: source
+    # - name: source-tester
+    #   templateRef:
+    #     kind: ClusterSourceTemplate
+    #     name: test
+    #   sources:
+    #     - resource: source-provider
+    #       name: source
 
     - name: image-builder
       templateRef:
@@ -50,7 +50,7 @@ spec:
         - name: image_prefix
           value: #@ data.values.image_prefix
       sources:
-        - resource: source-tester
+        - resource: source-provider
           name: source
 
     - name: deployer

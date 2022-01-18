@@ -15,11 +15,6 @@ kubectl config set-context --current --namespace=default
 kubectl create namespace cartographer-system || echo namespace cartographer-system exists
 kapp deploy -y -a cartographer -n default -f https://github.com/vmware-tanzu/cartographer/releases/download/v0.1.0/cartographer.yaml
 
-# tekton
-TEKTON_VERSION=0.30.0
-kapp deploy --yes -a tekton \
-	-f https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.30.0/release.yaml
-
 # kpack install (used by the example supply chain)
 KPACK_VERSION=0.4.3
 kapp deploy --yes -n default -a kpack \
